@@ -4,16 +4,28 @@ require_once '../model/pdo-articles.php';
 require_once '../controller/session.php';
 
 
+if(isset($_COOKIE["postsPerPage"])){
+    $postsPerPage=unserialize($_COOKIE['postsPerPage']);
+}
 
 if (isset($_POST['postsPerPage'])) {
     $postsPerPage = $_POST['postsPerPage'];
+    setcookie('postsPerPage',serialize($postsPerPage));
+}elseif(isset($postsPerPage)){
+
 } else {
     $postsPerPage = 10;
 }
 
+if(isset($_COOKIE["orderBy"])){
+    $orderBy=unserialize($_COOKIE['orderBy']);
+}
 
 if (isset($_POST['orderBy'])) {
     $orderBy = $_POST['orderBy'];
+    setcookie('orderBy',serialize($orderBy));
+}elseif(isset($orderBy)){
+
 } else {
     $orderBy = 'date-desc';
 }
