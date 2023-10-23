@@ -7,7 +7,9 @@ require_once '../controller/session.php';
     
     $anonUser = $userId == 0;
 
-    if (!$anonUser) {        
+    if (!$anonUser) {
+        //Ex5
+        $isAdmin= isAdminById($userId);       
         $nickname = getUserNicknameById($userId);
     } else $changePasswordVisibility = '';
     

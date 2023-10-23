@@ -134,6 +134,37 @@ function getUserNicknameById($userId)
     }
 }
 
+//Ex5
+/**
+ * Obté si es administrador, donat un ID
+ *
+ * @param int $userId ID de l'usuari a consultar
+ * 
+ * @return boolean true si es administrador false si no ho es
+ */
+function isAdminById($userId)
+{
+    try {
+        $connexio = getConnection();
+
+        $statement = $connexio->prepare('SELECT Administrador FROM users WHERE id = :userId');
+
+        $statement->bindParam('userId', $userId, PDO::PARAM_INT);
+
+        $statement->execute();
+
+        $result = $statement->fetch();
+
+        $result=intval($result['Administrador']);
+
+        if($result==1){return true;}
+        else{return false;}
+
+    } catch (PDOException $e) {
+        die("No es pot establir connexió amb la base de dades");
+    }
+}
+
 /**
  * Obté el ID d'un usuari mitjançant el seu token de recuperació
  *
