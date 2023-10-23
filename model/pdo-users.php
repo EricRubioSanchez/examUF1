@@ -26,7 +26,7 @@ function userExistsByEmail($email)
 
         return ($count > 0);
     } catch (PDOException $e) {
-        die("No es pot establir connexió amb la base de dades");
+        die(DB_MSG_ERROR);
     }
 }
 
@@ -52,7 +52,7 @@ function userExistsByNickname($nickname)
 
         return ($count > 0);
     } catch (PDOException $e) {
-        die("No es pot establir connexió amb la base de dades");
+        die(DB_MSG_ERROR);
     }
 }
 
@@ -78,7 +78,7 @@ function getUserHash($email)
 
         return $result['password'];
     } catch (PDOException $e) {
-        die("No es pot establir connexió amb la base de dades");
+        die(DB_MSG_ERROR);
     }
 }
 
@@ -104,7 +104,7 @@ function getUserId($email)
 
         return $result['id'];
     } catch (PDOException $e) {
-        die("No es pot establir connexió amb la base de dades");
+        die(DB_MSG_ERROR);
     }
 }
 
@@ -130,7 +130,7 @@ function getUserNicknameById($userId)
 
         return $result['nickname'];
     } catch (PDOException $e) {
-        die("No es pot establir connexió amb la base de dades");
+        die(DB_MSG_ERROR);
     }
 }
 
@@ -161,7 +161,7 @@ function isAdminById($userId)
         else{return false;}
 
     } catch (PDOException $e) {
-        die("No es pot establir connexió amb la base de dades");
+        die(DB_MSG_ERROR);
     }
 }
 
@@ -185,7 +185,7 @@ function selectAllUsers()
         return $result;
 
     } catch (PDOException $e) {
-        die("No es pot establir connexió amb la base de dades");
+        die(DB_MSG_ERROR);
     }
 }
 
@@ -208,7 +208,7 @@ function deleteUser($userId)
         $statement->execute();
 
     } catch (PDOException $e) {
-        die("No es pot establir connexió amb la base de dades");
+        die(DB_MSG_ERROR);
     }
 }
 
@@ -232,7 +232,7 @@ function getUserIdByResetToken($resetToken)
 
         return $result['id'];
     } catch (PDOException $e) {
-        die("No es pot establir connexió amb la base de dades");
+        die(DB_MSG_ERROR);
     }
 }
 
@@ -257,7 +257,7 @@ function getUserIdByRememberMeToken($rememberMeToken)
 
         return $result['id'];
     } catch (PDOException $e) {
-        die("No es pot establir connexió amb la base de dades");
+        die(DB_MSG_ERROR);
     }
 }
 
@@ -280,7 +280,7 @@ function insertNewUser($email, $nickname, $md5Hash)
             'pass' => $md5Hash
         ]);
     } catch (PDOException $e) {
-        die("No es pot establir connexió amb la base de dades");
+        die(DB_MSG_ERROR);
     }
 }
 
@@ -307,7 +307,7 @@ function insertNewSocialUser($email, $nickname, $socialProvider)
         ]);
         return $connexio->lastInsertId();
     } catch (PDOException $e) {
-        die("No es pot establir connexió amb la base de dades");
+        die(DB_MSG_ERROR);
     }
 }
 
@@ -330,7 +330,7 @@ function setUserHash($userId, $md5Hash)
 
         $statement->execute();
     } catch (PDOException $e) {
-        die("No es pot establir connexió amb la base de dades");
+        die(DB_MSG_ERROR);
     }
 }
 
@@ -353,7 +353,7 @@ function setResetToken($userId, $resetToken)
 
         $statement->execute();
     } catch (PDOException $e) {
-        die("No es pot establir connexió amb la base de dades");
+        die(DB_MSG_ERROR);
     }
 }
 
@@ -377,7 +377,7 @@ function setRememberMeToken($userId, $rememberMeToken)
 
         $statement->execute();
     } catch (PDOException $e) {
-        die("No es pot establir connexió amb la base de dades");
+        die(DB_MSG_ERROR);
     }
 }
 

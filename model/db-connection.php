@@ -1,7 +1,7 @@
 
 
 <?php
-
+require_once("../controller/env.php");
 /**
  * Crea una nova connexió amb la base de dades
  *
@@ -10,9 +10,9 @@
 function getConnection()
 {
     try {
-        return new PDO(sprintf('mysql:host=%s;dbname=%s',"localhost", "examuf1_db"), "root","");
+        return new PDO('mysql:host='.DB_HOST.';dbname='.DB_NAME, DB_USER, DB_PASSWORD);
     } catch (PDOException $e) {
-        die("No es pot establir connexió amb la base de dades");
+        die(DB_MSG_ERROR);
     }
 }
 ?>

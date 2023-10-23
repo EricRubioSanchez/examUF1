@@ -68,7 +68,7 @@ function getPosts($userId, $ndxArticle, $postsPerPage, $orderBy, $searchTerm)
 
         return $statement->fetchAll();
     } catch (PDOException $e) {
-        die("No es pot establir connexió amb la base de dades");
+        die(DB_MSG_ERROR);
     }
 }
 
@@ -98,7 +98,7 @@ function getLatestPosts($nPosts)
 
         return $statement->fetchAll();
     } catch (PDOException $e) {
-        die("No es pot establir connexió amb la base de dades");
+        die(DB_MSG_ERROR);
     }
 }
 
@@ -125,7 +125,7 @@ function getPost($articleId)
 
         return $statement->fetch();
     } catch (PDOException $e) {
-        die("No es pot establir connexió amb la base de dades");
+        die(DB_MSG_ERROR);
     }
 }
 
@@ -149,7 +149,7 @@ function getPostOwnerID($articleId)
 
         return $statement->fetch()['user_id'];
     } catch (PDOException $e) {
-        die("No es pot establir connexió amb la base de dades");
+        die(DB_MSG_ERROR);
     }
 }
 
@@ -185,7 +185,7 @@ function getCountOfPosts($userId, $searchTerm)
 
         return $resultat['qt'];
     } catch (PDOException $e) {
-        die("No es pot establir connexió amb la base de dades");
+        die(DB_MSG_ERROR);
     }
 }
 
@@ -217,7 +217,7 @@ function updatePost($articleId, $title, $director, $link, $ytLink, $article)
 
         $statement->execute();
     } catch (PDOException $e) {
-        die("No es pot establir connexió amb la base de dades");
+        die(DB_MSG_ERROR);
     }
 }
 
@@ -240,7 +240,7 @@ function setPostImage($articleId, $imagePath)
 
         $statement->execute();
     } catch (PDOException $e) {
-        die("No es pot establir connexió amb la base de dades");
+        die(DB_MSG_ERROR);
     }
 }
 
@@ -276,7 +276,7 @@ function createPost($userId, $title, $director, $link, $ytLink, $article)
         return $connexio->lastInsertId();
 
     } catch (PDOException $e) {
-        die("No es pot establir connexió amb la base de dades");
+        die(DB_MSG_ERROR);
     }
 }
 
@@ -298,6 +298,6 @@ function deletePost($articleId)
 
         $statement->execute();
     } catch (PDOException $e) {
-        die("No es pot establir connexió amb la base de dades");
+        die(DB_MSG_ERROR);
     }
 }
