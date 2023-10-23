@@ -68,6 +68,8 @@ function redirectHome()
 function getSessionUserId() {
     if (isset($_SESSION["userId"])) {
         return $_SESSION["userId"];
+    }elseif(isset($_COOKIE["rememberme"])){
+        return unserialize($_COOKIE['rememberme']);
     } else {
         return 0;
     }
