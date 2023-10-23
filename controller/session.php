@@ -34,7 +34,7 @@ function startSessionByUserId($userId)
 }
 
 function setSessionLifeTime()
-{    
+{   session_cache_expire(15);
     ini_set('session.gc_maxlifetime', 1800);
     ini_set('session.cookie-lifetime', 1800);
 }
