@@ -165,6 +165,30 @@ function isAdminById($userId)
     }
 }
 
+//Ex5
+/**
+ * Retorna tots els usuaris
+ * 
+ * @return array Array de tots els usuaris
+ */
+function selectAllUsers()
+{
+    try {
+        $connexio = getConnection();
+
+        $statement = $connexio->prepare('SELECT * FROM users');
+
+        $statement->execute();
+
+        $result = $statement->fetchAll();
+
+        return $result;
+
+    } catch (PDOException $e) {
+        die("No es pot establir connexió amb la base de dades");
+    }
+}
+
 /**
  * Obté el ID d'un usuari mitjançant el seu token de recuperació
  *
