@@ -3,7 +3,7 @@
 require_once '../model/pdo-articles.php';
 require_once '../controller/session.php';
 
-
+//Ex7
 if(isset($_COOKIE["postsPerPage"])){
     $postsPerPage=unserialize($_COOKIE['postsPerPage']);
 }

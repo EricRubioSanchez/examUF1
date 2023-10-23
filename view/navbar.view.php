@@ -38,6 +38,7 @@
               <li><a class="dropdown-item " href="llistarUsuaris.php"></span> Llistar Usuaris</a></li>
               <div class="dropdown-divider"></div>
               <li><a class="dropdown-item" href="clear-session.php"><span class="icon-logout"></span> Log out</a></li>
+              <li><a class="dropdown-item" href="clear-session.php" onclick="return confirm('Estàs segur que vols esborrar?')"><span class="icon-logout"></span> Log out</a></li>
             STR;
           else echo <<<STR
                 <a class="nav-link dropdown-toggle $createActive $passwordActive" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-person-fill me-2"></i><span class="icon-user-o"></span> $nickname</a>
@@ -47,6 +48,7 @@
                 <li><a class="dropdown-item " href="recovery-password.php"><span class="icon-key"></span> Recovery password</a></li>
                 <div class="dropdown-divider"></div>
                 <li><a class="dropdown-item" href="clear-session.php"><span class="icon-logout"></span> Log out</a></li>
+                <li><a class="dropdown-item" href="esborrarUsuari.php" onclick="return confirm('Estàs segur que vols esborrar el teu conte?')"><span class="icon-logout"></span> Donar-se de baixa</a></li>
                 STR;
 
           ?>

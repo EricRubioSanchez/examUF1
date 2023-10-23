@@ -189,6 +189,29 @@ function selectAllUsers()
     }
 }
 
+//Ex6
+/**
+ * Elimina un usuari
+ *
+ * @param int $userId id de l'usuari a eliminar
+ * 
+ */
+function deleteUser($userId)
+{
+    try {
+        $connexio = getConnection();
+
+        $statement = $connexio->prepare('DELETE FROM users WHERE id = :userId');
+
+        $statement->bindParam('userId', $userId, PDO::PARAM_INT);
+        
+        $statement->execute();
+
+    } catch (PDOException $e) {
+        die("No es pot establir connexió amb la base de dades");
+    }
+}
+
 /**
  * Obté el ID d'un usuari mitjançant el seu token de recuperació
  *
